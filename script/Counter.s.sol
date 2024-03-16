@@ -1,12 +1,17 @@
 // SPDX-License-Identifier: UNLICENSED
-pragma solidity ^0.8.13;
+pragma solidity ^0.8.12;
 
-import {Script, console2} from "forge-std/Script.sol";
+import {DeployBase} from "./DeployBase.s.sol";
+import {console2 as console} from "forge-std/console2.sol";
+import {Counter} from "../src/Counter.sol";
 
-contract CounterScript is Script {
-    function setUp() public {}
+contract CounterScript is DeployBase {
+   address public deploymentAddress;
+     function run() external {
+        startBroadcast();
+        deploymentAddress = address(new Counter());
+        vm.stopBroadcast();
 
-    function run() public {
-        vm.broadcast();
+        console.log("Deployed contract:", deploymentAddress);
     }
 }
