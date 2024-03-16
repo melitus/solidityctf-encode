@@ -13,8 +13,6 @@ docs/
 # Dotenv file
 .env
 
-.github/workflows 
-
 *lcov.info
 
 # Dependency directories

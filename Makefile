@@ -27,14 +27,8 @@ build::
 clean::
 	@forge clean
 
-coverage::
-	@forge coverage
-
 gas-report::
 	@forge test --gas-report
-
-test::
-	@forge test
 
 update::
 	@forge update
