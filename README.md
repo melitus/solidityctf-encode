@@ -133,3 +133,56 @@ To run code formatting:
 ```
 forge fmt
 ```
+
+# Generate UML class diagram with sol2uml
+
+To run code:
+
+```
+sol2uml ./src/Counter.sol 
+```
+
+# Slither for static analysis
+
+To run code:
+
+```
+
+Contract Summary: Output a quick summary of the contract.
+slither /src/nameOftheContract.sol --print contract-summary
+
+
+Human Summary: Print a human-readable summary of the contracts
+slither /src/nameOftheContract.sol --print human-summary
+
+
+```
+
+## Function Summary: Output a summary of the contract showing for each function:
+
+- What are the visibility and the modifiers
+- What are the state variables read or written
+- What are the ca
+```
+slither /src/Counter.sol --print function-summary
+
+```
+# Call Graph: Export the call-graph of the contracts to a dot file.
+```
+slither /src/NameOfTheContract.sol --print call-graph
+
+To visualise the graph:
+
+dot -Tpng NameOfTheContract.sol.NameOfTheContract.call-graph.dot -o slithercallgraph.png
+
+```
+
+# Inheritance Graph: Output a graph showing the inheritance interaction between the contracts.
+```
+slither /src/NameOfTheContract.sol --print inheritance-graph
+
+dot -Tpng NameOfTheContract.sol.inheritance-graph.dot -o slitherinheritancegraph.png
+
+```
+
+
