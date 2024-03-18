@@ -51,7 +51,7 @@ make deploy-sepolia contract=<CONTRACT_NAME>
 ```
 For example:
 ```
-make deploy-sepolia contract=PriceFeedConsumer
+make deploy contract=Level01
 ```
 ## Deploy - Other Network
 
