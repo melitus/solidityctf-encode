@@ -6,6 +6,8 @@ interface Isolution2 {
 }
 
 contract Level02 is Isolution2 {
+    constructor() payable {}
+
     function solution(uint256[10] calldata unsortedArray) external pure override returns (uint256[10] memory) {
         uint256[10] memory sorted = insertionSort(unsortedArray);
         return sorted;

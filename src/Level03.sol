@@ -3,10 +3,12 @@ pragma solidity ^0.8.13;
 
 interface Isolution3 {
     function solution(bytes memory packed) external returns (uint16 a, bool b, bytes6 c);
-	}
+}
 
 contract Level03 is Isolution3 {
-   function solution(bytes memory packed) external pure returns (uint16 a, bool b, bytes6 c) {
+    constructor() payable {}
+
+    function solution(bytes memory packed) external pure returns (uint16 a, bool b, bytes6 c) {
         require(packed.length >= 3, "Invalid packed data length");
 
         assembly {
@@ -20,8 +22,6 @@ contract Level03 is Isolution3 {
 
             // Extract bytes6 value (c) from the remaining 6 bytes
             c := mload(add(add(packed, 0x20), 3))
-
-
         }
         return (a, b, c);
     }
