@@ -6,19 +6,23 @@ interface Isolution2 {
 }
 
 contract Level02 is Isolution2 {
-    function solution(uint256[10] calldata unsortedArray) external pure returns (uint256[10] memory) {
+    function solution(uint256[10] calldata unsortedArray) external pure override returns (uint256[10] memory) {
+        uint256[10] memory sorted = insertionSort(unsortedArray);
+        return sorted;
+    }
+
+    function insertionSort(uint256[10] memory array) internal pure returns (uint256[10] memory) {
         unchecked {
-            uint256[10] memory sorted = unsortedArray;
-            for (uint256 i = 1; i < 10; i++) {
-                uint256 key = sorted[i];
+            for (uint256 i = 1; i < array.length; i++) {
+                uint256 key = array[i];
                 int256 j = int256(i) - 1;
-                while ((int256(j) >= 0) && (sorted[uint256(j)] > key)) {
-                    sorted[uint256(j + 1)] = sorted[uint256(j)];
+                while (j >= 0 && array[uint256(j)] > key) {
+                    array[uint256(j + 1)] = array[uint256(j)];
                     j--;
                 }
-                sorted[uint256(j + 1)] = key;
+                array[uint256(j + 1)] = key;
             }
-            return sorted;
+            return array;
         }
     }
 }
