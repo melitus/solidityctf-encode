@@ -11,17 +11,28 @@ contract Level04Test is Test {
         level04 = new Level04();
     }
 
-    function test_solution() public view {
-        // Test with different input values
+    function test_solution_1() public view {
+        // Test with input value 1
         assert(level04.solution(1) == 1);
-        assert(level04.solution(4) == 4);
-        assert(level04.solution(10) == 8);
-        assert(level04.solution(1023) == 512);
-        assert(level04.solution(1024) == 1024);
+    }
 
+    function test_solution_4() public view {
+        // Test with input value 4
+        assert(level04.solution(4) == 4);
+    }
+
+    function test_solution_10() public view {
+        // Test with input value 10
+        assert(level04.solution(10) == 8);
+    }
+
+    function test_solution_1023() public view {
+        // Test with input value 1023
+        assert(level04.solution(1023) == 512);
+    }
+
+    function test_solution_1024() public view {
+        // Test with input value 1024
+        assert(level04.solution(1024) == 1024);
     }
 }
-
-
-
-

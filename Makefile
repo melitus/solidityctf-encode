@@ -59,6 +59,15 @@ coverage:
 remappings:
 	@forge remappings > remappings.txt
 
+inspect_storage:
+	@forge inspect src/${contract}.sol:${contract} storage --pretty
+
+inspect_function:
+	@forge inspect src/${contract}.sol:${contract} methods --pretty
+
+print_abi:
+	@forge inspect src/${contract}.sol:${contract} abi --pretty
+
 analyzers::
 	slither .
 	
